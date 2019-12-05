@@ -1,0 +1,50 @@
+<div class="card">
+  <div class="card-header">
+    Featured
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Special title treatment</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+
+
+
+<div>
+  <h1>Form</h1>
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <div class="firstTextBox">
+      <label for="firstTextBox">First Text :</label>
+      <input type="text" id="ftBox" formControlName="fisttextbox" />
+    </div>
+    <div class="secondTextBox">
+      <label for="secondTextBox">Second Text :</label>
+      <input type="text" id="scBox" formControlName="secondtextbox" />
+    </div>
+    <div class="radioButton">
+      <label for="radioButton">Radio :</label>
+      <div>
+        <input id="male" type="radio" value="male" name="radioButton" formControlName="radioButton">
+        <label for="male">Male</label>
+      </div>
+
+      <div>
+        <input id="female" type="radio" value="female" name="radioButton" formControlName="radioButton">
+        <label for="female">Female</label>
+      </div>
+    </div>
+    <div class="dropDown">
+      <label for="dropDown">DropDown : </label>
+      <select formControlName="dropDown">
+        <option id="1" value="value1"></option>
+        <option id="2" value="value2"></option>
+        <option id="3" value="value3"></option>
+        <option id="4" value="value4"></option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary" >Submit</button>
+  </form>
+
+</div>

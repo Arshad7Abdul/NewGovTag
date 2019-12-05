@@ -1,0 +1,27 @@
+<div class="container">
+   <div>
+       <a href="#" [routerLink]="['/view-agency']" >Create Application</a>
+   </div>
+   <div>
+        <a href="#" [routerLink]="['/pending-apps']" >View Pending Applicatin</a>
+    </div>
+   <div>
+       <a href="#" [routerLink]="['/search-app']">Search Applcation</a>
+    </div>
+
+</div>
+
+<div class="container">
+    <h2 class="sr-only">Administration</h2>
+    <div class="row link-row no-gutter">
+        <div class="col-sm-4 col-md-4 col-lg-4 link-col">
+            <a href="#" [routerLink]="['/agencies-list']" class="link-block request-link">Request Records</a>
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4 link-col">
+            <a href="#" [routerLink]="['/pending-apps']" class="link-block pending-link">View Pending Applications</a>
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4 link-col">
+            <a href="#" [routerLink]="['/search-app']" class="link-block search-link">Search Requests</a>
+        </div>
+    </div>
+</div>

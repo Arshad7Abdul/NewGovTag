@@ -1,0 +1,54 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+code {
+  color: #e01a76;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Landing Page */
+
+.link-row {
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+.no-gutter > [class*='col-'] {
+  padding-right: 0;
+  padding-left: 0;
+} 
+.link-block {
+  display: block;
+  text-align: center;
+  height: 300px;
+  /*-moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;*/
+  background-repeat: no-repeat;
+  background-position: center;
+  font-weight: bold;
+  font-size: 1.5em;
+  padding: 1em;
+  transition: all 0.5s ease-in-out;
+}
+.request-link {
+  background-image: url("assets/icon-request.png");
+}
+.pending-link {
+  background-image: url("/assets/icon-pending.png");
+}
+.search-link {
+  background-image: url("/assets/icon-search.png");
+}
+.link-block:hover {
+  text-decoration: none;
+}

@@ -1,0 +1,32 @@
+<!-- <p-dataView [value]="agencyList"  [sortField]="sortField" [sortOrder]="sortOrder" [paginator]="true" [rows]="10">
+        <ng-template pTemplate="caption">
+                <div style="text-align: right">        
+                    <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+                    <input type="text" pInputText size="50" placeholder="Global Filter" (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
+                </div>
+            </ng-template>
+    <p-header>
+        <input type="search" pInputText placeholder="Search by brand" (input)='dv.filter($event.target.value, "contains")'>
+    </p-header>
+    <p-footer>Choose from the list.</p-footer>
+    <ng-template let-agency pTemplate="listItem">
+        <div>
+            {{agency.AgencyName}}
+        </div>
+    </ng-template>
+    <ng-template let-agency pTemplate="gridItem">
+        <div class="ui-g-12 ui-md-3">
+            {{agency.Address}}
+        </div>
+    </ng-template>
+</p-dataView>
+ -->
+<!-- [datasource]="configuration.model.viewModel.dataSource"  -->
+<!-- [gridOptions]="configuration.options"  -->
+
+
+<div class="grid-container">
+<ag-grid-angular style="width: 100%; height: 550px;" class="ag-theme-balham" [gridOptions]='gridOptions'
+    [columnDefs]="columnDefs" [rowData]="rowData" groupHeaders rowHeight="30" rowSelection="multiple"
+    [modules]="modules"></ag-grid-angular>
+</div>

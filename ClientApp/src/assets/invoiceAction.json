@@ -1,0 +1,86 @@
+[
+    {
+      "InvoiceActionID": 1,
+      "ActionValue": "T",
+      "ActionDescription": "Tag Transferred",
+      "ActionFee": 1.25,
+      "EffectiveDate": "2011-01-01 00:00:00.000",
+      "EndDate": "NULL",
+      "CreatedBy": "jgerrity",
+      "CreatedDate": "2011-04-11 00:00:00.000",
+      "UpdatedBy": "jgerrity",
+      "UpdatedDate": "2011-04-11 00:00:00.000"
+    },
+    {
+      "InvoiceActionID": 2,
+      "ActionValue": "I",
+      "ActionDescription": "Tag Issued",
+      "ActionFee": 24.25,
+      "EffectiveDate": "2011-01-01 00:00:00.000",
+      "EndDate": "NULL",
+      "CreatedBy": "jgerrity",
+      "CreatedDate": "2011-04-11 00:00:00.000",
+      "UpdatedBy": "jgerrity",
+      "UpdatedDate": "2011-04-11 00:00:00.000"
+    },
+    {
+      "InvoiceActionID": 3,
+      "ActionValue": "R",
+      "ActionDescription": "Replacement Tag",
+      "ActionFee": 2,
+      "EffectiveDate": "2011-01-01 00:00:00.000",
+      "EndDate": "NULL",
+      "CreatedBy": "csims",
+      "CreatedDate": "2011-04-11 00:00:00.000",
+      "UpdatedBy": "csims",
+      "UpdatedDate": "2011-04-11 00:00:00.000"
+    },
+    {
+      "InvoiceActionID": 6,
+      "ActionValue": "D",
+      "ActionDescription": "Delete",
+      "ActionFee": 0,
+      "EffectiveDate": "2011-01-01 00:00:00.000",
+      "EndDate": "NULL",
+      "CreatedBy": "tferrell",
+      "CreatedDate": "2012-07-11 00:00:00.000",
+      "UpdatedBy": "tferrell",
+      "UpdatedDate": "2012-07-11 00:00:00.000"
+    },
+    {
+      "InvoiceActionID": 8,
+      "ActionValue": "C",
+      "ActionDescription": "Replacement Receipt",
+      "ActionFee": 0,
+      "EffectiveDate": "2011-01-01 00:00:00.000",
+      "EndDate": "NULL",
+      "CreatedBy": "tferrell",
+      "CreatedDate": "2012-07-11 00:00:00.000",
+      "UpdatedBy": "tferrell",
+      "UpdatedDate": "2012-07-11 00:00:00.000"
+    },
+    {
+      "InvoiceActionID": 9,
+      "ActionValue": "E",
+      "ActionDescription": "Error Correction",
+      "ActionFee": 0,
+      "EffectiveDate": "2013-08-08 08:33:24.043",
+      "EndDate": "NULL",
+      "CreatedBy": "cmillan",
+      "CreatedDate": "2013-08-08 08:33:24.043",
+      "UpdatedBy": "cmillan",
+      "UpdatedDate": "2013-08-08 08:33:24.043"
+    },
+    {
+      "InvoiceActionID": 10,
+      "ActionValue": "F",
+      "ActionDescription": "Replacement Tag - No Fee",
+      "ActionFee": 0,
+      "EffectiveDate": "2014-02-12 09:28:13.857",
+      "EndDate": "NULL",
+      "CreatedBy": "cmillan",
+      "CreatedDate": "2014-02-12 09:28:13.857",
+      "UpdatedBy": "cmillan",
+      "UpdatedDate": "2014-02-12 09:28:13.857"
+    }
+  ]
