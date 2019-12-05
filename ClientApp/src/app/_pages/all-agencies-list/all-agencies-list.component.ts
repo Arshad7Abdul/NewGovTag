@@ -1,3 +1,4 @@
+import { InvoiceTypeService } from './../../services/invoice-type.service';
 import { Component, OnInit } from '@angular/core';
 import { Agency } from '../../models/Agency';
 import { HttpClient } from '@angular/common/http';
@@ -13,72 +14,66 @@ import { AgencyViewModel } from '../../models/AgencyViewModel';
     styleUrls: ['./all-agencies-list.component.css']
 })
 export class AllAgenciesListComponent implements OnInit {
-    // public agencyList: Agency[];
-
-    // sortOptions: SelectItem[];
-
-    // sortKey: string;
-
-    // sortField: string;
-
-    // sortOrder: number;
-    gridOptions: {};
-
     public modules: Module[] = AllCommunityModules;
+    gridOptions: {};
     columnDefs = [];
     rowData = [];
-    constructor(public http: HttpClient, private _dorAgencyServiceService: DorAgencyServiceService) {
-        // this.getAgenciesList();
+    constructor(public http: HttpClient, private _dorAgencyServiceService: DorAgencyServiceService,
+        private invoiceTypeService: InvoiceTypeService) {
         this.columnDefs = [
-            { headerName: 'Agency ID', field: 'AgencyID', sortable: true },
-            { headerName: 'Agency Number', field: 'AgencyNumber', sortable: true },
-            { headerName: 'Agency Name', field: 'AgencyName', sortable: true },
-            { headerName: 'Description Name', field: 'Description', sortable: true }
+            { headerName: 'Agency ID', field: 'AgencyID', filter: 'agNumberColumnFilter' },
+            { headerName: 'Agency Number', field: 'AgencyNumber' },
+            { headerName: 'Agency Name', field: 'AgencyName' },
+            { headerName: 'Description Name', field: 'InvoiceDescription' },
+            { headerName: 'Application Type', field: 'ApplicationType' },
+            { headerName: 'City', field: 'City' }
         ];
-        // this.rowData = [{ AgencyID: 1, AgencyNumber: '0290', AgencyName: 'CITY OF HANCEVILLE /WATERWORKS&SEWER B' },
-        // { AgencyID: 2, AgencyNumber: '1166', AgencyName: 'USS ALABAMA BATTLESHIP COMMISSION' },
-        // { AgencyID: 3, AgencyNumber: '1166', AgencyName: 'USS ALABAMA BATTLESHIP COMMISSION' }];
 
     }
 
     ngOnInit(): void {
         this.gridOptions = {
             defaultColDef: {
+                filter: true,
+                sortable: true,
                 resizable: true
             },
             columnDefs: this.columnDefs,
             pagination: true,
+            paginationPageSize : 100,
             onGridReady: params => {
 
                 this._dorAgencyServiceService.getAgency().subscribe(data => {
-                    debugger;
-        
-                    data.forEach(element => {
-                     const agencyViewModel  = new AgencyViewModel();
-                     agencyViewModel.AgencyID =  element.AgencyID;
-                     agencyViewModel.AgencyName = element.AgencyName;
-                     agencyViewModel.AgencyNumber = element.AgencyNumber;
-                     const address = element['AgencyAddresses'].find(x => x.AgencyID === '45');
-                    //  agencyViewModel.City
-                    //  agencyViewModel.Description = element.ApplicationTypeID;
-                        this.rowData.push(agencyViewModel);
+                    this.invoiceTypeService.getInvoiceType().subscribe(invoiceData => {
+                        data.forEach(element => {
+                            const agencyViewModel = new AgencyViewModel();
+                            agencyViewModel.AgencyID = element.AgencyID;
+                            agencyViewModel.AgencyName = element.AgencyName;
+                            agencyViewModel.AgencyNumber = element.AgencyNumber;
+                            agencyViewModel.City = '';
+                            agencyViewModel.ApplicationType = '';
+                            agencyViewModel.InvoiceDescription = '';
+                            const address = element['AgencyAddresses'].find(x => x.AgencyID === element.AgencyID);
+                            if (address !== undefined) {
+                                agencyViewModel.City = address.City;
+                            }
+                            const invoiceType = invoiceData.find(x => x.InvoiceTypeID === element.ApplicationTypeID);
+                            if (invoiceType !== undefined) {
+                                agencyViewModel.InvoiceDescription = invoiceType.Description;
+                                agencyViewModel.ApplicationType = invoiceType.InvoiceTypeValue;
+                            }
+                            this.rowData.push(agencyViewModel);
 
+                        });
+                        params.api.setRowData(this.rowData);
                     });
-                    params.api.setRowData(this.rowData);
-                    // this.rowData = [{ AgencyID: 1, AgencyNumber: '0290', AgencyName: 'CITY OF HANCEVILLE /WATERWORKS&SEWER B' },
-                    // { AgencyID: 2, AgencyNumber: '1166', AgencyName: 'USS ALABAMA BATTLESHIP COMMISSION' },
-                    // { AgencyID: 3, AgencyNumber: '1166', AgencyName: 'USS ALABAMA BATTLESHIP COMMISSION' }];
-                    // this.agencyList = data;
-        
-                    console.log(data);
                 });
 
-            },
-            rowData: this.rowData,
+            }
 
         };
 
-      
+
     }
 
 }

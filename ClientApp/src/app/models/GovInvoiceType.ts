@@ -1,5 +1,5 @@
 export class GovInvoiceType {
-    InvoiceTypeId: number;
+    InvoiceTypeID: number;
     InvoiceTypeValue: string;
     Name: string;
     Description: string;
